@@ -38,6 +38,8 @@ ARG CLONE_REPO
 
 RUN git clone -b ${CLONE_TAG} --depth 1 $CLONE_REPO .
 
+RUN pip install --upgrade pip
+
 # CUDA_ARCH_NAME=Manual is a workaround the lack of compute_60 or higher in cuda7.5's cuda
 # Required for recent GPUs
 RUN for req in $(cat python/requirements.txt); do pip install $req; done && \
