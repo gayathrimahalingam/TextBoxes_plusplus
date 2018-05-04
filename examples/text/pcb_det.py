@@ -122,7 +122,7 @@ def save_and_visu(image, results, config):
 
 
 def prepare_network(config):
-    net = caffe.Net(config['model_def'],	 # defines the structure of the model
+    	net = caffe.Net(config['model_def'],	 # defines the structure of the model
                     config['model_weights'],  # contains the trained weights
                     caffe.TEST)     # use test mode (e.g., don't perform dropout)
 
