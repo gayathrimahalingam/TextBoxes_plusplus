@@ -55,6 +55,6 @@ ENV PYTHONPATH $PYCAFFE_ROOT:$PYTHONPATH
 ENV PATH $CAFFE_ROOT/build/tools:$PYCAFFE_ROOT:$PATH
 RUN echo "$CAFFE_ROOT/build/lib" >> /etc/ld.so.conf.d/caffe.conf && ldconfig
 
-RUN wget -O /opt/caffe/models/ https://www.dropbox.com/s/9znpiqpah8rir9c/model_icdar15.caffemodel
+RUN wget -P /opt/caffe/models/ https://www.dropbox.com/s/9znpiqpah8rir9c/model_icdar15.caffemodel
 
 WORKDIR /opt/caffe
