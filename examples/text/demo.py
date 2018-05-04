@@ -30,15 +30,15 @@ config = {
 	'rec_save_dir' : './demo_images/recognition_result/',
 	'crop_dir' : './demo_images/crops/',
 	'lexicon_path' : './crnn/data/icdar_generic_lexicon.txt',
-	'use_lexcion' : True,
+	'use_lexcion' : False,
 	'input_height' : 768,
 	'input_width' : 768,
 	'overlap_threshold' : 0.2,
 	'det_score_threshold' : 0.1,
 	'f_score_threshold' : 0.7,
 	'visu_detection' : True,
-	'visu_recognition': True,
-	'apply_recognition' : True
+	'visu_recognition': False,
+	'apply_recognition' : False
 }
 
 def prepare_network(config):
