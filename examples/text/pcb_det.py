@@ -122,10 +122,9 @@ def save_and_visu(image, results, config):
 
 
 def prepare_network(config):
-    	net = caffe.Net(config['model_def'],	 # defines the structure of the model
+    net = caffe.Net(config['model_def'],	 # defines the structure of the model
                     config['model_weights'],  # contains the trained weights
                     caffe.TEST)     # use test mode (e.g., don't perform dropout)
-
 	transformer = caffe.io.Transformer({'data': (1,3,config['input_height'], config['input_width'])})
 	transformer.set_transpose('data', (2, 0, 1))
 	transformer.set_mean('data', np.array([104,117,123])) # mean pixel
