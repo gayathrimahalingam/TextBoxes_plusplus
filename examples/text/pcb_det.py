@@ -140,6 +140,7 @@ def prepare_network(config):
 if __name__ == "__main__":
 	files = glob.glob(os.path.join(config['img_dir'], '*.jpg'))
 	for f in files:
+		f = os.path.basename(f)
 		config['image_name'] = f
 		config['det_visu_path'] = os.path.join(config['det_save_dir'], f)
 		img = cv2.imread(os.path.join(config['img_dir'], config['image_name']))
