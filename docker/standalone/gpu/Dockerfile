@@ -39,6 +39,7 @@ ARG CLONE_REPO
 RUN git clone -b ${CLONE_TAG} --depth 1 $CLONE_REPO .
 
 RUN pip install --upgrade pip && \
+    pip install setuptools --upgrade && \
     pip install matplotlib pyopenssl ndg-httpsclient pyasn1 --ignore-installed six
 
 # CUDA_ARCH_NAME=Manual is a workaround the lack of compute_60 or higher in cuda7.5's cuda
