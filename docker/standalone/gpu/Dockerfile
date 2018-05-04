@@ -38,14 +38,15 @@ ARG CLONE_REPO
 
 RUN git clone -b ${CLONE_TAG} --depth 1 $CLONE_REPO .
 
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip && \
+    pip install matplotlib pyopenssl ndg-httpsclient pyasn1 --ignore-installed six
 
 # CUDA_ARCH_NAME=Manual is a workaround the lack of compute_60 or higher in cuda7.5's cuda
 # Required for recent GPUs
 RUN for req in $(cat python/requirements.txt); do pip install $req --ignore-installed six; done && \
     mkdir build && cd build && \
     cmake .. -DCUDA_ARCH_NAME=Manual && \
-    make all -j"$(nproc)" && pip install matplotlib pyopenssl ndg-httpsclient pyasn1 --ignore-installed six
+    make all -j"$(nproc)"
 
 # HACK: OpenCV can be confused by (the lack of) this driver in some systems
 RUN ln /dev/null /dev/raw1394
